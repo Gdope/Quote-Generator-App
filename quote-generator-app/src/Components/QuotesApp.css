@@ -146,6 +146,21 @@
   background-image: linear-gradient(to left, #1b9b96, #2e6f79);
   padding: 3rem 7rem 3rem 3rem;
   overflow: hidden;
+  overflow: auto;
+}
+.favorite::-webkit-scrollbar {
+  width: 1rem;
+}
+.favorite::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.favorite::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5rem;
+}
+.favorite::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 5rem;
 }
 
 .favorite-quote {
@@ -185,4 +200,22 @@
   justify-content: right;
   font-size: 1.4rem;
   color: #ccc;
+}
+
+@media (max-width: 850px) {
+  .quotes-app {
+    width: 75vmin;
+    aspect-ratio: 2/3;
+  }
+}
+
+@media (max-width: 550px) {
+  .quotes-app {
+    width: 75vmin;
+    aspect-ratio: 1/2;
+  }
+  .buttons {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
 }
