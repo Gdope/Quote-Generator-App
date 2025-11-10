@@ -44,6 +44,23 @@ const QuotesApp = () => {
           </button>
           <button className="btn btn-fav">Add to Favorites</button>
         </div>
+        <div className="favorites">
+          <button className="btn-close">
+            <i className="bx bx-x"></i>
+          </button>
+          <div className="fav-quote">
+            <div className="fav-quote-delete">
+              <i className="bx bx-x-circle"></i>
+            </div>
+            <div className="fav-quote-content">
+              <div className="fav-quote-text">
+                Ask not what your country can do for you; Ask what you can do
+                for your country
+              </div>
+              <div className="fav-quote-author">John Kennedy</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
