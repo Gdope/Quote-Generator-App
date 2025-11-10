@@ -1,4 +1,26 @@
+import { useState } from "react";
+
 const QuotesApp = () => {
+  const [quote, setQuote] = useState({
+    text: "Ask not what your country can do for you; Ask what you can do for your country",
+    author: "John Kennedy",
+  });
+
+  const fetchNewQuote = async () => {
+    const url =
+      "https://api.api-ninjas.com/v2/randomquotes?categories=success,wisdom";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "X-Api-Key": "sRUfCdrSQWXQC5nYcGAIUQ==JpDGmMzrSSVGyUov",
+      },
+    });
+    const data = await response.json();
+    setQuote({
+      text: data[0].quote,
+      author: data[0].author,
+    });
+  };
   return (
     <div className="container">
       <div className="quotes-app">
@@ -6,11 +28,8 @@ const QuotesApp = () => {
         <i className="bx bxs-heart fav-icon"></i>
         <div className="quote">
           <i className="bx bxs-quote-alt-left left-quote"></i>
-          <p className="quote-text">
-            Ask not what your country can do for you; Ask what you can do for
-            your country
-          </p>
-          <p className="quote-author">John Kennedy</p>
+          <p className="quote-text">{quote.text}</p>
+          <p className="quote-author">{quote.author}</p>
           <i className="bx bxs-quote-alt-right right-quote"></i>
         </div>
         <div className="circles">
@@ -20,7 +39,9 @@ const QuotesApp = () => {
           <div className="circle-4"></div>
         </div>
         <div className="buttons">
-          <button className="btn btn-new">New quotes</button>
+          <button className="btn btn-new" onClick={fetchNewQuote}>
+            New quotes
+          </button>
           <button className="btn btn-fav">Add to Favorites</button>
         </div>
       </div>
